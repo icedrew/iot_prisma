@@ -18,5 +18,8 @@
   "homepage": "https://github.com/icedrew/iot_prisma#readme",
   "devDependencies": {
     "prisma": "^4.8.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.8.0"
   }
 }
