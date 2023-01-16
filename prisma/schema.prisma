@@ -2,34 +2,105 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model ProjectInfo {
+    id             Int    @id @default(autoincrement())
+    projectName    String @default("工程名稱")
+    homePage       String @default("<p></p>")
+    projectPage    String @default("<p></p>")
+    instrumentPage String @default("<p></p>")
 }
 
 model Device {
-  id        Int       @id @default(autoincrement())
-  name      String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
+    id             Int    @id @default(autoincrement())
+    name           String
+    deviceLocal    String
+    sn             String @unique
+    model          String
+    status         Int    @default(0)
+    channel_status String @default("0,0,0,0")
+    csvHeaderLine  Int    @default(0)
 }
 
 model Template {
-  id        Int       @id @default(autoincrement())
-  name      String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
+    id         Int      @id @default(autoincrement())
+    name       String   @unique
+    unit       String
+    precision  Int
+    expression String
+    updateTime DateTime @default(now())
 }
 
-model Channel{
-  id        Int       @id @default(autoincrement())
-  name      String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
+model Channel {
+    id                   Int      @id @default(autoincrement())
+    sn                   String
+    name                 String
+    facility_id          Int
+    template_id          Int
+    index                Int
+    status               Int      @default(0)
+    last_receive_time    DateTime
+    warning_upper_thresh Int      @default(99999)
+    warning_lower_thresh Int      @default(99999)
+    action_upper_thresh  Int      @default(99999)
+    action_lower_thresh  Int      @default(99999)
+}
+
+model History {
+    facility_id Int
+    dateTime    DateTime
+    id          Int      @id @default(autoincrement())
+    channel1    String
+    channel2    String
+    channel3    String
+    channel4    String
+    channel5    String
+    channel6    String
+    channel7    String
+    channel8    String
+    channel9    String
+    channel10   String
+    channel11   String
+    channel12   String
+    channel13   String
+    channel14   String
+    channel15   String
+    channel16   String
+    channel17   String
+    channel18   String
+    channel19   String
+    channel20   String
+}
+
+model CalculatedData {
+    facility_id Int
+    dateTime    DateTime
+    id          Int      @id @default(autoincrement())
+    channel1    String
+    channel2    String
+    channel3    String
+    channel4    String
+    channel5    String
+    channel6    String
+    channel7    String
+    channel8    String
+    channel9    String
+    channel10   String
+    channel11   String
+    channel12   String
+    channel13   String
+    channel14   String
+    channel15   String
+    channel16   String
+    channel17   String
+    channel18   String
+    channel19   String
+    channel20   String
 }
