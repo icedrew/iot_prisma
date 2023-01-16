@@ -1,0 +1,22 @@
+{
+  "name": "iot",
+  "version": "1.0.0",
+  "description": "iot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icedrew/iot_prisma.git"
+  },
+  "author": "eric",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/icedrew/iot_prisma/issues"
+  },
+  "homepage": "https://github.com/icedrew/iot_prisma#readme",
+  "devDependencies": {
+    "prisma": "^4.8.0"
+  }
+}
